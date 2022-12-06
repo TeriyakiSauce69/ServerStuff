@@ -10,13 +10,16 @@ def client_program():
 
     client_socket = socket.socket()  # instantiate
     client_socket.connect((host, port))  # connect to the server
+    print("Connected!")
+
+    client_socket.send(b"PUT")
 
     #filename = 'indextwo.html'
     filetosend = open("dir/indextwo.html", "r")
     data = filetosend.read()
     #Sending file to server-
     #Send file name
-    client_socket.send("index69.html".encode(FORMAT))
+    client_socket.send("index6900.html".encode(FORMAT))
     #Recieved file name confirmation from server
     msg = client_socket.recv(SIZE).decode(FORMAT)
     print(f"[SERVER]: {msg}")

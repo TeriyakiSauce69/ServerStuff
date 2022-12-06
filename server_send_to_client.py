@@ -11,8 +11,13 @@ print('Server listening....')
 while True:
     conn, addr = s.accept()     # Establish connection with client.
     print('Got connection from', addr)
+
+
     data = conn.recv(1024)
+
     print('Server received', repr(data))
+    if data == b"GET":
+        print("DOGECOIN!")
 
     filename='textexample.txt'
     f = open(filename,'rb')
